@@ -16,11 +16,30 @@
   ~ limitations under the License.
   -->
 
-<androidx.constraintlayout.widget.ConstraintLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-    <!-- TODO -->
+    <androidx.appcompat.widget.LinearLayoutCompat
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="4dp">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <Button android:id="@+id/touch"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/button_touch">
+        </Button>
+
+        <Button android:id="@+id/nestedScrolling"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/button_nested_scrolling">
+        </Button>
+
+        <!-- TODO -->
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+</ScrollView>

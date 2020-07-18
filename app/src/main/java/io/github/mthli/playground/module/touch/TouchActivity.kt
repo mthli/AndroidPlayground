@@ -14,19 +14,15 @@
  * limitations under the License.
  */
 
-package io.github.mthli.playground
+package io.github.mthli.playground.module.touch
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import io.github.mthli.playground.module.touch.TouchActivity
-import kotlinx.android.synthetic.main.activity_main.*
+import io.github.mthli.playground.R
 
-class MainActivity : AppCompatActivity() {
+class TouchActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        touch.setOnClickListener { startActivity(Intent(this, TouchActivity::class.java)) }
-        nestedScrolling.setOnClickListener { /* TODO */ }
+        setContentView(R.layout.activity_touch)
     }
 }

@@ -14,19 +14,14 @@
  * limitations under the License.
  */
 
-package io.github.mthli.playground
+package io.github.mthli.playground.extension
 
-import android.content.Intent
-import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
-import io.github.mthli.playground.module.touch.TouchActivity
-import kotlinx.android.synthetic.main.activity_main.*
+import android.view.MotionEvent
 
-class MainActivity : AppCompatActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        touch.setOnClickListener { startActivity(Intent(this, TouchActivity::class.java)) }
-        nestedScrolling.setOnClickListener { /* TODO */ }
-    }
+fun MotionEvent.getActionName() = when (action) {
+    MotionEvent.ACTION_DOWN -> "ACTION_DOWN"
+    MotionEvent.ACTION_MOVE -> "ACTION_MOVE"
+    MotionEvent.ACTION_UP -> "ACTION_UP"
+    MotionEvent.ACTION_CANCEL -> "ACTION_CANCEL"
+    else -> "IGNORE"
 }

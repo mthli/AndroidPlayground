@@ -18,4 +18,7 @@
 
     <string name="app_name">Playground</string>
 
+    <string name="button_nested_scrolling">Nested Scrolling</string>
+    <string name="button_touch">Touch</string>
+
 </resources>
