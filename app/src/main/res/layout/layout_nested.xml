@@ -16,12 +16,7 @@
   ~ limitations under the License.
   -->
 
-<resources>
-
-    <color name="blue">#2196F3</color>
-    <color name="cyan">#00BCD4</color>
-    <color name="indigo">#3F51B5</color>
-    <color name="pink">#E91E63</color>
-    <color name="purple">#9C27B0</color>
-
-</resources>
+<View xmlns:android="http://schemas.android.com/apk/res/android"
+      android:layout_width="match_parent"
+      android:layout_height="72dp">
+</View>

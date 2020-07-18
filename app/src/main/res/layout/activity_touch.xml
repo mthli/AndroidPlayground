@@ -27,7 +27,7 @@
     <io.github.mthli.playground.module.touch.TouchView
             android:layout_width="128dp"
             android:layout_height="128dp"
-            android:background="@color/colorAccent"
+            android:background="@color/pink"
             android:clickable="true"
             android:focusable="true"
             app:layout_constraintTop_toTopOf="parent"

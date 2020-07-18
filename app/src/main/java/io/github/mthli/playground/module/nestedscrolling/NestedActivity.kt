@@ -14,20 +14,24 @@
  * limitations under the License.
  */
 
-package io.github.mthli.playground
+package io.github.mthli.playground.module.nestedscrolling
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import io.github.mthli.playground.module.nestedscrolling.NestedActivity
-import io.github.mthli.playground.module.touch.TouchActivity
-import kotlinx.android.synthetic.main.activity_main.*
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.zhihu.android.sugaradapter.SugarAdapter
+import io.github.mthli.playground.R
+import kotlinx.android.synthetic.main.activity_nested.*
 
-class MainActivity : AppCompatActivity() {
+class NestedActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        touch.setOnClickListener { startActivity(Intent(this, TouchActivity::class.java)) }
-        nestedScrolling.setOnClickListener { startActivity(Intent(this, NestedActivity::class.java)) }
+        setContentView(R.layout.activity_nested)
+
+        recyclerView.layoutManager = LinearLayoutManager(this)
+        recyclerView.adapter = SugarAdapter.Builder
+            .with(mutableListOf<Int>().apply { for (i in 0 until 100) add(i) })
+            .add(NestedHolder::class.java).build()
     }
 }

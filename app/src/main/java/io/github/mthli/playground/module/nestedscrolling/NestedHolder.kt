@@ -14,28 +14,16 @@
  * limitations under the License.
  */
 
-buildscript {
-    ext.kotlin_version = '1.3.72'
+package io.github.mthli.playground.module.nestedscrolling
 
-    repositories {
-        google()
-        jcenter()
+import android.view.View
+import com.zhihu.android.sugaradapter.Layout
+import com.zhihu.android.sugaradapter.SugarHolder
+import io.github.mthli.playground.R
+
+@Layout(R.layout.layout_nested)
+class NestedHolder(view: View) : SugarHolder<Int>(view) {
+    override fun onBindData(data: Int) {
+        rootView.setBackgroundResource(if (data % 2 == 0) R.color.indigo else R.color.cyan)
     }
-
-    dependencies {
-        classpath 'com.android.tools.build:gradle:4.0.1'
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-    }
-}
-
-allprojects {
-    repositories {
-        google()
-        jcenter()
-        
-    }
-}
-
-task clean(type: Delete) {
-    delete rootProject.buildDir
 }

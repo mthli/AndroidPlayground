@@ -35,6 +35,7 @@
         </activity>
 
         <activity android:name=".module.touch.TouchActivity" />
+        <activity android:name=".module.nestedscrolling.NestedActivity" />
 
     </application>
 
