@@ -19,15 +19,19 @@ package io.github.mthli.playground
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import io.github.mthli.playground.databinding.ActivityMainBinding
 import io.github.mthli.playground.module.nestedscrolling.NestedActivity
 import io.github.mthli.playground.module.touch.TouchActivity
-import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        touch.setOnClickListener { startActivity(Intent(this, TouchActivity::class.java)) }
-        nestedScrolling.setOnClickListener { startActivity(Intent(this, NestedActivity::class.java)) }
+
+        val binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        binding.touch.setOnClickListener { startActivity(Intent(this, TouchActivity::class.java)) }
+        binding.nestedScrolling.setOnClickListener { startActivity(Intent(this, NestedActivity::class.java)) }
     }
 }

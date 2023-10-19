@@ -1,5 +1,5 @@
 /*
- * Copyright 2020 Matthew Lee
+ * Copyright 2023 Matthew Lee
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,8 +15,6 @@
  */
 
 buildscript {
-    ext.kotlin_version = '1.8.22'
-
     repositories {
         google()
         mavenCentral()
@@ -27,7 +25,7 @@ buildscript {
 
     dependencies {
         classpath 'com.android.tools.build:gradle:8.1.2'
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.8.22'
     }
 }
 

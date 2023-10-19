@@ -21,16 +21,18 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.zhihu.android.sugaradapter.SugarAdapter
 import io.github.mthli.playground.R
-import kotlinx.android.synthetic.main.activity_nested.*
+import io.github.mthli.playground.databinding.ActivityNestedBinding
 
 class NestedActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        val binding = ActivityNestedBinding.inflate(layoutInflater)
         setContentView(R.layout.activity_nested)
 
-        recyclerView.layoutManager = LinearLayoutManager(this)
-        recyclerView.adapter = SugarAdapter.Builder
+        binding.recycler.layoutManager = LinearLayoutManager(this)
+        binding.recycler.adapter = SugarAdapter.Builder
             .with(mutableListOf<Int>().apply { for (i in 0 until 100) add(i) })
             .add(NestedHolder::class.java).build()
     }
