@@ -6,8 +6,8 @@ A sample playground for (re)learning Android.
 
 ## License
 
-```text
-Copyright 2020 Matthew Lee
+```
+Copyright 2023 Matthew Lee
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
