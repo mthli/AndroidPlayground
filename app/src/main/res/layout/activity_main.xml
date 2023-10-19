@@ -26,19 +26,23 @@
             android:layout_height="wrap_content"
             android:padding="4dp">
 
+        <Button android:id="@+id/mvi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/button_mvi"
+                />
+
+        <Button android:id="@+id/nested"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/button_nested_scrolling"
+                />
+
         <Button android:id="@+id/touch"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/button_touch">
-        </Button>
-
-        <Button android:id="@+id/nestedScrolling"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/button_nested_scrolling">
-        </Button>
-
-        <!-- TODO -->
+                android:text="@string/button_touch"
+                />
 
     </androidx.appcompat.widget.LinearLayoutCompat>
 

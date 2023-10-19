@@ -25,6 +25,7 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import io.github.mthli.playground.extension.getActionName
 
 class TouchConstraintLayout(context: Context, attrs: AttributeSet?) : ConstraintLayout(context, attrs) {
+
     companion object {
         private const val TAG = "ViewGroup"
     }

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package io.github.mthli.playground.module.nestedscrolling
+package io.github.mthli.playground.module.nested
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity

@@ -20,7 +20,8 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import io.github.mthli.playground.databinding.ActivityMainBinding
-import io.github.mthli.playground.module.nestedscrolling.NestedActivity
+import io.github.mthli.playground.module.mvi.MviActivity
+import io.github.mthli.playground.module.nested.NestedActivity
 import io.github.mthli.playground.module.touch.TouchActivity
 
 class MainActivity : AppCompatActivity() {
@@ -31,7 +32,8 @@ class MainActivity : AppCompatActivity() {
         val binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        binding.mvi.setOnClickListener { startActivity(Intent(this, MviActivity::class.java)) }
+        binding.nested.setOnClickListener { startActivity(Intent(this, NestedActivity::class.java)) }
         binding.touch.setOnClickListener { startActivity(Intent(this, TouchActivity::class.java)) }
-        binding.nestedScrolling.setOnClickListener { startActivity(Intent(this, NestedActivity::class.java)) }
     }
 }

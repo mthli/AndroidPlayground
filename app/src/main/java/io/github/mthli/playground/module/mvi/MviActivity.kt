@@ -14,16 +14,16 @@
  * limitations under the License.
  */
 
-package io.github.mthli.playground.module.nestedscrolling
+package io.github.mthli.playground.module.mvi
 
-import android.view.View
-import com.zhihu.android.sugaradapter.Layout
-import com.zhihu.android.sugaradapter.SugarHolder
+import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import io.github.mthli.playground.R
 
-@Layout(R.layout.layout_nested)
-class NestedHolder(view: View) : SugarHolder<Int>(view) {
-    override fun onBindData(data: Int) {
-        rootView.setBackgroundResource(if (data % 2 == 0) R.color.indigo else R.color.cyan)
+class MviActivity : AppCompatActivity() {
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_mvi)
     }
 }

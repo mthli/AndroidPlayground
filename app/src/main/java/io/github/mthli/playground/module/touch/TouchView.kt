@@ -25,6 +25,7 @@ import android.view.View
 import io.github.mthli.playground.extension.getActionName
 
 class TouchView(context: Context, attrs: AttributeSet?) : View(context, attrs) {
+
     companion object {
         private const val TAG = "View"
     }

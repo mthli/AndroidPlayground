@@ -14,16 +14,18 @@
  * limitations under the License.
  */
 
-package io.github.mthli.playground.module.touch
+package io.github.mthli.playground.module.nested
 
-import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
+import android.annotation.SuppressLint
+import android.view.View
+import com.zhihu.android.sugaradapter.Layout
+import com.zhihu.android.sugaradapter.SugarHolder
 import io.github.mthli.playground.R
 
-class TouchActivity : AppCompatActivity() {
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_touch)
+@SuppressLint("NonConstantResourceId")
+@Layout(R.layout.layout_nested)
+class NestedHolder(view: View) : SugarHolder<Int>(view) {
+    override fun onBindData(data: Int) {
+        rootView.setBackgroundResource(if (data % 2 == 0) R.color.indigo else R.color.cyan)
     }
 }
