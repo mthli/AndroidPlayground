@@ -20,7 +20,6 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.zhihu.android.sugaradapter.SugarAdapter
-import io.github.mthli.playground.R
 import io.github.mthli.playground.databinding.ActivityNestedBinding
 
 class NestedActivity : AppCompatActivity() {
@@ -29,7 +28,7 @@ class NestedActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         val binding = ActivityNestedBinding.inflate(layoutInflater)
-        setContentView(R.layout.activity_nested)
+        setContentView(binding.root)
 
         binding.recycler.layoutManager = LinearLayoutManager(this)
         binding.recycler.adapter = SugarAdapter.Builder
