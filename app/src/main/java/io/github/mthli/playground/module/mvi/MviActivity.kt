@@ -17,13 +17,35 @@
 package io.github.mthli.playground.module.mvi
 
 import android.os.Bundle
+import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import io.github.mthli.playground.R
+import io.github.mthli.playground.databinding.ActivityMviBinding
+import org.orbitmvi.orbit.viewmodel.observe
 
 class MviActivity : AppCompatActivity() {
 
+    private lateinit var binding: ActivityMviBinding
+    private val viewModel by viewModels<CalculatorViewModel>()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_mvi)
+
+        binding = ActivityMviBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        viewModel.observe(this, state = ::render, sideEffect = ::handleSideEffect)
+    }
+
+    private fun render(state: CalculatorState) {
+        // TODO
+    }
+
+    private fun handleSideEffect(sideEffect: CalculatorSideEffect) {
+        when (sideEffect) {
+            is CalculatorSideEffect.Toast -> {
+                Toast.makeText(this, sideEffect.text, Toast.LENGTH_SHORT).show()
+            }
+        }
     }
 }
