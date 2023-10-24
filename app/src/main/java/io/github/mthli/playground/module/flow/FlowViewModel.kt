@@ -17,6 +17,7 @@
 package io.github.mthli.playground.module.flow
 
 import android.app.Application
+import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.Dispatchers
@@ -27,11 +28,16 @@ import kotlinx.coroutines.launch
 
 class FlowViewModel(application: Application) : AndroidViewModel(application) {
 
+    companion object {
+        private const val TAG = "FlowViewModel"
+    }
+
     private val addState = MutableStateFlow(0)
 
     fun addState(): StateFlow<Int> = addState
     fun add(number: Int) {
         viewModelScope.launch(Dispatchers.IO) {
+            Log.i(TAG, "launch at ${Thread.currentThread().name}")
             delay(5000L) // ms.
             addState.value += number
         }

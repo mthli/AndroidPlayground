@@ -17,6 +17,7 @@
 package io.github.mthli.playground.module.flow
 
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Lifecycle
@@ -28,6 +29,10 @@ import kotlinx.coroutines.launch
 
 class FlowActivity : AppCompatActivity() {
 
+    companion object {
+        private const val TAG = "FlowActivity"
+    }
+
     private val viewModel by viewModels<FlowViewModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -38,10 +43,11 @@ class FlowActivity : AppCompatActivity() {
 
         binding.add.setOnClickListener { viewModel.add(1) }
 
-        // lifecycleScope launch in Dispatchers.Main
+        // lifecycleScope launch at Dispatchers.Main
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
                 viewModel.addState().collect {
+                    Log.i(TAG, "collect at ${Thread.currentThread().name}")
                     binding.total.text = getString(R.string.text_total, it)
                 }
             }
