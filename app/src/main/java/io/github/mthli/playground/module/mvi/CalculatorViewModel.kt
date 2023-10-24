@@ -18,6 +18,7 @@ package io.github.mthli.playground.module.mvi
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
+import io.github.mthli.playground.R
 import org.orbitmvi.orbit.ContainerHost
 import org.orbitmvi.orbit.syntax.simple.intent
 import org.orbitmvi.orbit.syntax.simple.postSideEffect
@@ -25,13 +26,14 @@ import org.orbitmvi.orbit.syntax.simple.reduce
 import org.orbitmvi.orbit.viewmodel.container
 
 // https://github.com/orbit-mvi/orbit-mvi
-class CalculatorViewModel(application: Application) : AndroidViewModel(application),
+class CalculatorViewModel(private val application: Application) : AndroidViewModel(application),
     ContainerHost<CalculatorState, CalculatorSideEffect> {
 
     override val container = container<CalculatorState, CalculatorSideEffect>(CalculatorState())
 
     fun add(number: Int) = intent {
-        postSideEffect(CalculatorSideEffect.Toast("Adding $number to ${state.total}!"))
+        val text = application.getString(R.string.text_adding_to, number, state.total)
+        postSideEffect(CalculatorSideEffect.Toast(text))
 
         reduce {
             state.copy(total = state.total + number)

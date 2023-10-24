@@ -24,24 +24,26 @@
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="4dp">
+            android:padding="4dp"
+            android:clipChildren="false"
+            android:clipToPadding="false">
 
         <Button android:id="@+id/mvi"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/button_mvi"
+                android:text="@string/text_mvi"
                 />
 
         <Button android:id="@+id/nested"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/button_nested_scrolling"
+                android:text="@string/text_nested_scrolling"
                 />
 
         <Button android:id="@+id/touch"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/button_touch"
+                android:text="@string/text_touch"
                 />
 
     </androidx.appcompat.widget.LinearLayoutCompat>

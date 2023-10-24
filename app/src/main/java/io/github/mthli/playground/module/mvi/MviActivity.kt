@@ -20,6 +20,7 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import io.github.mthli.playground.R
 import io.github.mthli.playground.databinding.ActivityMviBinding
 import org.orbitmvi.orbit.viewmodel.observe
 
@@ -35,10 +36,11 @@ class MviActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         viewModel.observe(this, state = ::render, sideEffect = ::handleSideEffect)
+        binding.add.setOnClickListener { viewModel.add(1) }
     }
 
     private fun render(state: CalculatorState) {
-        // TODO
+        binding.total.text = getString(R.string.text_total, state.total)
     }
 
     private fun handleSideEffect(sideEffect: CalculatorSideEffect) {

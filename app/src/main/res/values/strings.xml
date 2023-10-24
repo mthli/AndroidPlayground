@@ -18,8 +18,12 @@
 
     <string name="app_name">Playground</string>
 
-    <string name="button_mvi">Model View Intent</string>
-    <string name="button_nested_scrolling">Nested Scrolling</string>
-    <string name="button_touch">Touch</string>
+    <string name="text_mvi">Model View Intent</string>
+    <string name="text_nested_scrolling">Nested Scrolling</string>
+    <string name="text_touch">Touch</string>
+
+    <string name="text_add">Add</string>
+    <string name="text_adding_to">Adding %1$d to %2$d</string>
+    <string name="text_total">Total: %d</string>
 
 </resources>
