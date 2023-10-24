@@ -17,10 +17,18 @@
 package io.github.mthli.playground.module.flow
 
 import android.os.Bundle
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
+import io.github.mthli.playground.R
 import io.github.mthli.playground.databinding.ActivityFlowBinding
+import kotlinx.coroutines.launch
 
 class FlowActivity : AppCompatActivity() {
+
+    private val viewModel by viewModels<FlowViewModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,6 +36,15 @@ class FlowActivity : AppCompatActivity() {
         val binding = ActivityFlowBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // TODO
+        binding.add.setOnClickListener { viewModel.add(1) }
+
+        // lifecycleScope launch in Dispatchers.Main
+        lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.STARTED) {
+                viewModel.addState().collect {
+                    binding.total.text = getString(R.string.text_total, it)
+                }
+            }
+        }
     }
 }
