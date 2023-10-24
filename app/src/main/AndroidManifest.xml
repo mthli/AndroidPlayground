@@ -38,6 +38,7 @@
         <activity android:name=".module.mvi.MviActivity" />
         <activity android:name=".module.nested.NestedActivity" />
         <activity android:name=".module.touch.TouchActivity" />
+        <activity android:name=".module.flow.FlowActivity" />
 
     </application>
 

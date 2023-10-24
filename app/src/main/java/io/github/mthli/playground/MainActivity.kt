@@ -20,6 +20,7 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import io.github.mthli.playground.databinding.ActivityMainBinding
+import io.github.mthli.playground.module.flow.FlowActivity
 import io.github.mthli.playground.module.mvi.MviActivity
 import io.github.mthli.playground.module.nested.NestedActivity
 import io.github.mthli.playground.module.touch.TouchActivity
@@ -35,5 +36,6 @@ class MainActivity : AppCompatActivity() {
         binding.mvi.setOnClickListener { startActivity(Intent(this, MviActivity::class.java)) }
         binding.nested.setOnClickListener { startActivity(Intent(this, NestedActivity::class.java)) }
         binding.touch.setOnClickListener { startActivity(Intent(this, TouchActivity::class.java)) }
+        binding.flow.setOnClickListener { startActivity(Intent(this, FlowActivity::class.java)) }
     }
 }
