@@ -20,11 +20,13 @@ import android.app.Application
 import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
+import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
+import kotlin.coroutines.CoroutineContext
 
 class FlowViewModel(application: Application) : AndroidViewModel(application) {
 
@@ -35,8 +37,12 @@ class FlowViewModel(application: Application) : AndroidViewModel(application) {
     private val addState = MutableStateFlow(0)
 
     fun addState(): StateFlow<Int> = addState
-    fun add(number: Int) {
-        viewModelScope.launch(Dispatchers.IO) {
+    fun add(
+        number: Int,
+        scope: CoroutineScope = viewModelScope,
+        context: CoroutineContext = Dispatchers.IO,
+    ) {
+        scope.launch(context) {
             Log.i(TAG, "launch at ${Thread.currentThread().name}")
             delay(5000L) // ms.
             addState.value += number
