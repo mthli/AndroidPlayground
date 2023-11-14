@@ -23,7 +23,14 @@ import dagger.hilt.components.SingletonComponent
 import java.text.DateFormat
 import java.text.SimpleDateFormat
 import java.util.Locale
+import javax.inject.Qualifier
 import javax.inject.Singleton
+
+@Qualifier
+annotation class DateFormat0
+
+@Qualifier
+annotation class DateFormat1
 
 @Module
 @InstallIn(SingletonComponent::class)
@@ -31,5 +38,11 @@ class HiltModule {
 
     @Provides
     @Singleton
-    fun provideDateFormat(): DateFormat = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ", Locale.getDefault())
+    @DateFormat0
+    fun provideDateFormat0(): DateFormat = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ", Locale.getDefault())
+
+    @Provides
+    @Singleton
+    @DateFormat1
+    fun provideDateFormat1(): DateFormat = SimpleDateFormat("yyyy.MM.dd G 'at' HH:mm:ss z", Locale.getDefault())
 }

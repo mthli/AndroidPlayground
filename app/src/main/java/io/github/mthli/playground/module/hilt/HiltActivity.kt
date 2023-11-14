@@ -27,7 +27,9 @@ import javax.inject.Inject
 @AndroidEntryPoint
 class HiltActivity : AppCompatActivity() {
 
-    @Inject lateinit var dateFormat: DateFormat
+    @Inject
+    @DateFormat0 // or @DateFormat1
+    lateinit var dateFormat: DateFormat
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
