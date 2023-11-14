@@ -16,25 +16,20 @@
 
 package io.github.mthli.playground.module.hilt
 
-import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
-import dagger.hilt.android.AndroidEntryPoint
-import io.github.mthli.playground.databinding.ActivityHiltBinding
+import dagger.Module
+import dagger.Provides
+import dagger.hilt.InstallIn
+import dagger.hilt.components.SingletonComponent
 import java.text.DateFormat
-import java.util.Date
-import javax.inject.Inject
+import java.text.SimpleDateFormat
+import java.util.Locale
+import javax.inject.Singleton
 
-@AndroidEntryPoint
-class HiltActivity : AppCompatActivity() {
+@Module
+@InstallIn(SingletonComponent::class)
+class HiltModule {
 
-    @Inject lateinit var dateFormat: DateFormat
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-        val binding = ActivityHiltBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-
-        binding.date.text = dateFormat.format(Date())
-    }
+    @Provides
+    @Singleton
+    fun provideDateFormat(): DateFormat = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ", Locale.getDefault())
 }
