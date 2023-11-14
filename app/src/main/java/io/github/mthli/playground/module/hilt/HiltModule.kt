@@ -16,6 +16,7 @@
 
 package io.github.mthli.playground.module.hilt
 
+import dagger.Binds
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -24,7 +25,6 @@ import java.text.DateFormat
 import java.text.SimpleDateFormat
 import java.util.Locale
 import javax.inject.Qualifier
-import javax.inject.Singleton
 
 @Qualifier
 annotation class DateFormat0
@@ -34,15 +34,24 @@ annotation class DateFormat1
 
 @Module
 @InstallIn(SingletonComponent::class)
-class HiltModule {
+abstract class HiltModule {
 
-    @Provides
-    @Singleton
-    @DateFormat0
-    fun provideDateFormat0(): DateFormat = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ", Locale.getDefault())
+    // https://github.com/google/dagger/issues/1691#issuecomment-919514915
+    // error: A @Module may not contain both non-static and abstract binding methods.
+    companion object {
+        @Provides
+        @DateFormat0
+        fun provideDateFormat0(): DateFormat {
+            return SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ", Locale.getDefault())
+        }
 
-    @Provides
-    @Singleton
-    @DateFormat1
-    fun provideDateFormat1(): DateFormat = SimpleDateFormat("yyyy.MM.dd G 'at' HH:mm:ss z", Locale.getDefault())
+        @Provides
+        @DateFormat1
+        fun provideDateFormat1(): DateFormat {
+            return SimpleDateFormat("yyyy.MM.dd G 'at' HH:mm:ss z", Locale.getDefault())
+        }
+    }
+
+    @Binds
+    abstract fun hilt(impl: HiltImpl): IHilt
 }

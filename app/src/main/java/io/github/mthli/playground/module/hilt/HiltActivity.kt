@@ -21,7 +21,6 @@ import androidx.appcompat.app.AppCompatActivity
 import dagger.hilt.android.AndroidEntryPoint
 import io.github.mthli.playground.databinding.ActivityHiltBinding
 import java.text.DateFormat
-import java.util.Date
 import javax.inject.Inject
 
 @AndroidEntryPoint
@@ -31,12 +30,15 @@ class HiltActivity : AppCompatActivity() {
     @DateFormat0 // or @DateFormat1
     lateinit var dateFormat: DateFormat
 
+    @Inject
+    lateinit var hilt: IHilt
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         val binding = ActivityHiltBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.date.text = dateFormat.format(Date())
+        binding.date.text = dateFormat.format(hilt.date())
     }
 }
