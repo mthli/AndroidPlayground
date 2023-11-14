@@ -52,6 +52,12 @@
                 android:text="@string/text_flow"
                 />
 
+        <Button android:id="@+id/hilt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/text_hilt"
+                />
+
     </androidx.appcompat.widget.LinearLayoutCompat>
 
 </ScrollView>

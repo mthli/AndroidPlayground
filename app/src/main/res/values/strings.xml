@@ -19,6 +19,7 @@
     <string name="app_name">Playground</string>
 
     <string name="text_flow">Flow</string>
+    <string name="text_hilt">Hilt</string>
     <string name="text_mvi">Model View Intent</string>
     <string name="text_nested_scrolling">Nested Scrolling</string>
     <string name="text_touch">Touch</string>
