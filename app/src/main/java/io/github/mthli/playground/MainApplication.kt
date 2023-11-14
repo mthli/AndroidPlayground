@@ -14,32 +14,10 @@
  * limitations under the License.
  */
 
-buildscript {
-    repositories {
-        google()
-        mavenCentral()
+package io.github.mthli.playground
 
-        // noinspection JcenterRepositoryObsolete
-        jcenter()
-    }
+import android.app.Application
+import dagger.hilt.android.HiltAndroidApp
 
-    dependencies {
-        classpath 'com.android.tools.build:gradle:8.1.3'
-        classpath 'com.google.dagger:hilt-android-gradle-plugin:2.48.1'
-        classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.8.22'
-    }
-}
-
-allprojects {
-    repositories {
-        google()
-        mavenCentral()
-
-        // noinspection JcenterRepositoryObsolete
-        jcenter()
-    }
-}
-
-tasks.register('clean', Delete) {
-    delete rootProject.buildDir
-}
+@HiltAndroidApp
+class MainApplication : Application()

@@ -16,6 +16,7 @@
 
 plugins {
     id 'com.android.application'
+    id 'com.google.dagger.hilt.android'
     id 'kotlin-android'
     id 'kotlin-kapt'
     id 'kotlin-parcelize'
@@ -55,13 +56,17 @@ android {
     }
 }
 
+kapt {
+    correctErrorTypes true
+}
+
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     implementation 'androidx.appcompat:appcompat:1.6.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     implementation 'androidx.core:core-ktx:1.12.0'
-    implementation 'androidx.fragment:fragment-ktx:1.6.1'
+    implementation 'androidx.fragment:fragment-ktx:1.6.2'
     implementation 'androidx.recyclerview:recyclerview:1.3.2'
 
     implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
@@ -70,6 +75,9 @@ dependencies {
 
     implementation 'org.orbit-mvi:orbit-core:6.1.0'
     implementation 'org.orbit-mvi:orbit-viewmodel:6.1.0'
+
+    implementation 'com.google.dagger:hilt-android:2.48.1'
+    kapt 'com.google.dagger:hilt-compiler:2.48.1'
 
     implementation 'com.zhihu.android:sugaradapter:1.8.16'
     kapt 'com.zhihu.android:sugaradapter-processor:1.8.16'
