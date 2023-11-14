@@ -20,7 +20,7 @@ import dagger.Binds
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
-import dagger.hilt.components.SingletonComponent
+import dagger.hilt.android.components.ActivityComponent
 import java.text.DateFormat
 import java.text.SimpleDateFormat
 import java.util.Locale
@@ -33,7 +33,7 @@ annotation class DateFormat0
 annotation class DateFormat1
 
 @Module
-@InstallIn(SingletonComponent::class)
+@InstallIn(ActivityComponent::class)
 abstract class HiltModule {
 
     // https://github.com/google/dagger/issues/1691#issuecomment-919514915
