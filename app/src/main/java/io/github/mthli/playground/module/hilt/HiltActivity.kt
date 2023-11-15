@@ -27,7 +27,9 @@ import javax.inject.Inject
 class HiltActivity : AppCompatActivity() {
 
     @Inject
-    @DateFormat0 // or @DateFormat1
+    // @DateFormat0
+    // @DateFormat1
+    @DateFormat2
     lateinit var dateFormat: DateFormat
 
     @Inject

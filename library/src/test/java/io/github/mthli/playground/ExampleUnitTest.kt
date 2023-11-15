@@ -1,5 +1,5 @@
 /*
- * Copyright 2020 Matthew Lee
+ * Copyright 2023 Matthew Lee
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,5 +14,19 @@
  * limitations under the License.
  */
 
-include ':app'
-include ':library'
+package io.github.mthli.playground
+
+import org.junit.Assert.assertEquals
+import org.junit.Test
+
+/**
+ * Example local unit test, which will execute on the development machine (host).
+ *
+ * See [testing documentation](http://d.android.com/tools/testing).
+ */
+class ExampleUnitTest {
+    @Test
+    fun addition_isCorrect() {
+        assertEquals(4, 2 + 2)
+    }
+}
